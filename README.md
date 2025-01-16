@@ -1,6 +1,6 @@
-# Example Home Assistant add-on repository
+# hassio-speakerphat
 
-This repository can be used as a "blueprint" for add-on development to help you get started.
+Home Assistant addon for the Pimoroni Speaker pHAT
 
 Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 
