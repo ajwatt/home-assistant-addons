@@ -1,4 +1,4 @@
-# hassio-speakerphat
+# speakerphat
 
 Home Assistant addon for the Pimoroni Speaker pHAT
 
