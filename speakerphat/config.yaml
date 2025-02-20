@@ -4,4 +4,4 @@ version: "1.0.3"
 slug: "speakerphat"
 init: false
 arch:
-  - aarch64
+  - armhf
