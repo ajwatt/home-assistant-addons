@@ -27,6 +27,8 @@ ARG \
 WORKDIR /usr/src
 
 RUN \
+    which apt-get
+RUN \
     apt-get update -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true
 RUN \ 
     apt-get -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true install -y --no-install-recommends \
