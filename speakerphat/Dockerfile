@@ -89,7 +89,9 @@ RUN \
     \
     && apk del .build-deps \
     && rm -rf /usr/src/* \
-    && apk add --no-cache alsa-utils
+
+RUN \
+    apk add --no-cache alsa-utils
 
 # Root filesystem
 COPY rootfs /
@@ -98,7 +100,8 @@ COPY rootfs /
 WORKDIR /
 ENTRYPOINT ["/init"]
 
-
+RUN \
+    aplay /addons/hassio-speakerphat.old/LGsong-chorus.wav
 
 # Copy data for add-on
 #COPY run.sh /
