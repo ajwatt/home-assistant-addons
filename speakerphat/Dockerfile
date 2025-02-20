@@ -34,9 +34,9 @@ RUN \
         tzdata \
         curl \
         ca-certificates \
-        xz-utils \
-    \
-    && curl -L -f -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-armhf.tar.xz" \
+        xz-utils
+RUN \
+    curl -L -f -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-armhf.tar.xz" \
         | tar Jxvf - -C / \
     && curl -L -f -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz" \
         | tar Jxvf - -C / \
@@ -45,19 +45,22 @@ RUN \
     && curl -L -f -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-symlinks-noarch.tar.xz" \
         | tar Jxvf - -C / \
     && mkdir -p /etc/fix-attrs.d \
-    && mkdir -p /etc/services.d \
-    \
-    && curl -L -f -s -o /usr/bin/tempio \
+    && mkdir -p /etc/services.d
+
+RUN \
+    curl -L -f -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_armhf" \
-    && chmod a+x /usr/bin/tempio \
-    \
-    && mkdir -p /usr/src/bashio \
+    && chmod a+x /usr/bin/tempio
+
+RUN \
+    mkdir -p /usr/src/bashio \
     && curl -L -f -s "https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz" \
         | tar -xzf - --strip 1 -C /usr/src/bashio \
     && mv /usr/src/bashio/lib /usr/lib/bashio \
-    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
-    \
-    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio
+
+RUN \
+    rm -rf /var/lib/apt/lists/* \
     && rm -rf /usr/src/*
 
 RUN \
