@@ -100,11 +100,8 @@ COPY rootfs /
 WORKDIR /
 ENTRYPOINT ["/init"]
 
-RUN \
-    aplay /addons/hassio-speakerphat.old/LGsong-chorus.wav
-
 # Copy data for add-on
-#COPY run.sh /
-#RUN chmod a+x /run.sh
+COPY run.sh /
+RUN chmod a+x /run.sh
 
-#CMD [ "/run.sh" ]
+CMD [ "/run.sh" ]
