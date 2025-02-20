@@ -88,7 +88,7 @@ RUN \
     && chmod a+x /usr/bin/tempio \
     \
     && apk del .build-deps \
-    && rm -rf /usr/src/* \
+    && rm -rf /usr/src/*
 
 RUN \
     apk add --no-cache alsa-utils
