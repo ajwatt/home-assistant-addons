@@ -28,7 +28,7 @@ WORKDIR /usr/src
 
 RUN \
     set -x \
-    && apt-get update && apt-get install -y --no-install-recommends \
+    && apt-get update && apt-get -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true install -y --no-install-recommends \
         bash \
         jq \
         tzdata \
