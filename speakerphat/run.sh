@@ -6,5 +6,7 @@ apk add --no-cache alsa-utils
 #aplay /addons/hassio-spakerphat.old/LGsong-chorus.wav
 clear
 echo "Data dir:"
-ls -l /data
-aplay /data/$STARTSOUND
+ls -l /Data
+echo "Root dir:"
+ls -l /
+aplay /$STARTSOUND
