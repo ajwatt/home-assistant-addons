@@ -4,5 +4,7 @@ STARTSOUND="$(bashio::config 'startup_sound')"
 
 apk add --no-cache alsa-utils
 #aplay /addons/hassio-spakerphat.old/LGsong-chorus.wav
+clear
+echo "Data dir:"
 ls -l /data
 aplay /data/$STARTSOUND
