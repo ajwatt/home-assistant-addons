@@ -8,4 +8,5 @@ clear
 echo "aplay:
 "
 aplay -L
+cat /etc/asound.conf
 #aplay /$STARTSOUND
