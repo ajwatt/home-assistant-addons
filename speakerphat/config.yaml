@@ -6,6 +6,8 @@ url: https://github.com/ajwatt/home-assistant-addons/tree/main/speakerphat
 init: false
 arch:
   - armhf
+devices:
+  - /dev/i2c-1
 options:
   startup_sound: LGsong-chorus.wav
 schema:
