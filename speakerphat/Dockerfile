@@ -4,7 +4,8 @@ FROM $BUILD_FROM
 # Install requirements for add-on
 RUN \
   apk add --no-cache \
-    alsa-utils
+    alsa-utils \
+    libpulse
 
 # Copy data for add-on
 COPY run.sh /
