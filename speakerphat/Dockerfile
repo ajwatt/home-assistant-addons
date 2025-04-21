@@ -9,5 +9,6 @@ RUN \
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+COPY LGsong-chorus.wav /data
 
 CMD [ "/run.sh" ]
