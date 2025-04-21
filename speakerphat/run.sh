@@ -8,3 +8,9 @@ ls -l /*.wav
 cat /etc/asound.conf
 aplay -L
 #aplay /$STARTSOUND
+
+while :
+do
+    echo "."
+    sleep 60
+done
