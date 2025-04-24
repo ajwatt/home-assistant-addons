@@ -12,6 +12,6 @@ RUN \
 COPY run.sh /
 RUN chmod a+x /run.sh
 COPY LGsong-chorus.wav /
-COPY asound.conf /etc
+COPY rootfs /
 
 CMD [ "/run.sh" ]
