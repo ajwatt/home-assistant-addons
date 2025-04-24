@@ -12,6 +12,9 @@ RUN \
 COPY run.sh /
 RUN chmod a+x /run.sh
 COPY LGsong-chorus.wav /
+COPY soundtest.sh /
+RUN \
+  chmod +x soundtest.sh
 
 #CMD [ "/run.sh" ]
 
