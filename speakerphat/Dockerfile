@@ -12,6 +12,8 @@ RUN \
 COPY run.sh /
 RUN chmod a+x /run.sh
 COPY LGsong-chorus.wav /
-COPY rootfs /
 
-CMD [ "/run.sh" ]
+#CMD [ "/run.sh" ]
+
+# Copy root filesystem
+COPY rootfs /
