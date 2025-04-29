@@ -1,4 +1,0 @@
-### Try to load pivumeter if it exists
-.nofail
-load-module module-alsa-sink device=pivumeter
-.fail
