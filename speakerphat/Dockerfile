@@ -15,6 +15,12 @@ COPY LGsong-chorus.wav /
 COPY soundtest.sh /
 RUN \
   chmod +x soundtest.sh
+#COPY libpivumeter.a /usr/local/lib
+#COPY libpivumeter.la /usr/local/lib
+#COPY libpivumeter.so.0.0.0 /usr/local/lib
+#RUN \
+#  ln -s /usr/local/lib/libpivumeter.so.0.0 /usr/local/lib/libpivumeter.so \
+#  ln -s /usr/local/lib/libpivumeter.so.0.0 /usr/local/lib/libpivumeter.so.0
 
 #CMD [ "/run.sh" ]
 
