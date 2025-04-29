@@ -9,6 +9,7 @@ RUN \
     alsa-plugins-pulse
 
 # Copy data for add-on
+COPY asound.conf /etc/
 COPY run.sh /
 RUN chmod a+x /run.sh
 COPY LGsong-chorus.wav /
