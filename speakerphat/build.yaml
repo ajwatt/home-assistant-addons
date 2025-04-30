@@ -1,6 +1,6 @@
 image: ghcr.io/home-assistant/{arch}-base-raspbian
 build_from:
-  armhf: "tianon/raspbian:"
+  armhf: "raspbian:"
 cosign:
   identity: https://github.com/home-assistant/docker-base/.*
 args:
