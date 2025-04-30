@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-armhf: tianon/raspbian:${VERSION}-slim
+  tianon/raspbian:${VERSION}-slim
 
 FROM ${BUILD_FROM}
 
