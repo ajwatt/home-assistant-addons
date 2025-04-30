@@ -2,6 +2,10 @@ ARG BUILD_FROM
 # armhf: tianon/raspbian:${VERSION}-slim
 
 FROM ${BUILD_FROM}
+ARG DOWNLOAD_URL
+ARG BUILD_VERSION
+ARG BUILD_ARCH
+
 
 # Default ENV
 ENV \
