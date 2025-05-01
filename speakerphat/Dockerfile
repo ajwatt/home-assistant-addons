@@ -3,10 +3,27 @@ FROM $BUILD_FROM
 
 # Install requirements for add-on
 RUN \
-  apk add --no-cache \
+  apk update
+  apk add --no-cache --virtual "ALSA" \
     alsa-utils \
     pulseaudio-utils \
     alsa-plugins-pulse
+
+# Install Pivumeter dependencies
+RUN \
+  apk add --no-cache --virtual "Pivumeter dependencies" \
+    build-base \
+    linux-headers \
+    autoconf \
+    automake \
+    libtool \
+    alsa-lib-dev \
+    fftw-dev \
+    git
+
+# Build patched WiringPi
+RUN \
+
 
 # Copy data for add-on
 COPY .asoundrc /root/
