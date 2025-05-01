@@ -12,7 +12,7 @@ RUN \
 COPY root/ /root/
 COPY run.sh /
 RUN \
-  chmod +x /root/soundtest.sh; \
+  chmod a+x /root/soundtest.sh; \
   chmod a+x /run.sh
 
 # Install Pivumeter dependencies
