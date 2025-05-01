@@ -36,7 +36,6 @@ RUN \
   cd WiringPi/wiringPi && \
   patch -u -b wiringPi.c -i wiringPi.c.patch && \
   patch -u -b Makefile -i wiringPi_Makefile.patch && \
-  cd WiringPi/wiringPi && \
   make install && \
   cp libwiringPi.so.3.14 /usr/local/lib && \
   cd /usr/local/lib && \
