@@ -1,19 +1,11 @@
---- WiringPi/wiringPi/Makefile
-+++ WiringPi.patched/wiringPi/Makefile
-@@ -103,7 +103,6 @@
-        $Q install -m 0755 -d                                           $(DESTDIR)$(PREFIX)/lib
-        $Q install -m 0755 libwiringPi.so.$(VERSION)                    $(DESTDIR)$(PREFIX)/lib/libwiringPi.so.$(VERSION)
-        $Q ln -sf $(DESTDIR)$(PREFIX)/lib/libwiringPi.so.$(VERSION)     $(DESTDIR)/lib/libwiringPi.so
--       $Q $(LDCONFIG)
+--- WiringPi/wiringPi/wiringPi.c
++++ WiringPi.patched/wiringPi/wiringPi.c
+@@ -1648,7 +1648,7 @@
+     if (wiringPiFindNode (pin) != NULL)
+       (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Pin %d overlaps with existing definition\n", pin) ;
  
- .PHONY: check-deb-destdir
- check-deb-destdir:
-@@ -126,8 +125,6 @@
-        $Q echo "[UnInstall]"
-        $Q cd $(DESTDIR)$(PREFIX)/include/ && rm -f $(HEADERS)
-        $Q cd $(DESTDIR)$(PREFIX)/lib/     && rm -f libwiringPi.*
--       $Q $(LDCONFIG)
--
+-  node = (struct wiringPiNodeStruct *)calloc (sizeof (struct wiringPiNodeStruct), 1) ; // calloc zeros
++  node = (struct wiringPiNodeStruct *)calloc (1, sizeof (struct wiringPiNodeStruct)) ; // calloc zeros
+   if (node == NULL)
+     (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Unable to allocate memory: %s\n", strerror (errno)) ;
  
- .PHONY:        depend
- depend:
