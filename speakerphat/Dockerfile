@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 # Install requirements for add-on
 RUN \
-  apk update \
+  apk update && \
   apk add --no-cache --virtual "ALSA" \
     alsa-utils \
     pulseaudio-utils \
@@ -30,18 +30,18 @@ RUN \
 
 # Build patched WiringPi
 RUN \
-  cd \
+  cd && \
   git clone --branch 3.14 --single-branch https://github.com/WiringPi/WiringPi.git
 COPY WiringPi/patches /root/WiringPi/
 RUN \
-  patch -u -b WiringPi/wiringPi/wiringPi.c -i WiringPi/patches/wiringPi.c.patch \
-  patch -u -b WiringPi/wiringPi/Makefile -i WiringPi/patches/wiringPi_Makefile.patch \
-  cd WiringPi/wiringPi \
-  make install \
-  cp libwiringPi.so.3.14 /usr/local/lib \
-  cd /usr/local/lib \
-  ln -s libwiringPi.so.3.14 libwiringPi.so \
-  ldconfig /etc/ld.so.conf.d; echo $? \
+  patch -u -b WiringPi/wiringPi/wiringPi.c -i WiringPi/patches/wiringPi.c.patch && \
+  patch -u -b WiringPi/wiringPi/Makefile -i WiringPi/patches/wiringPi_Makefile.patch && \
+  cd WiringPi/wiringPi && \
+  make install && \
+  cp libwiringPi.so.3.14 /usr/local/lib && \
+  cd /usr/local/lib && \
+  ln -s libwiringPi.so.3.14 libwiringPi.so && \
+  ldconfig /etc/ld.so.conf.d; echo $? && \
   cd /
 
 
