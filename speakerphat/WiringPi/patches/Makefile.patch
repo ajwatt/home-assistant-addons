@@ -1,5 +1,5 @@
---- WiringPi/wiringPi/Makefile
-+++ WiringPi.patched/wiringPi/Makefile
+--- Makefile.orig
++++ Makefile
 @@ -103,7 +103,6 @@
         $Q install -m 0755 -d                                           $(DESTDIR)$(PREFIX)/lib
         $Q install -m 0755 libwiringPi.so.$(VERSION)                    $(DESTDIR)$(PREFIX)/lib/libwiringPi.so.$(VERSION)
