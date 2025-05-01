@@ -6,7 +6,6 @@ RUN \
   apk update && \
   apk add --no-cache --virtual "ALSA" \
     alsa-utils \
-    pulseaudio-utils \
     alsa-plugins-pulse
 
 # Copy data for add-on
@@ -30,12 +29,13 @@ RUN \
 
 # Build patched WiringPi
 RUN \
-  cd && \
+  cd /root && \
   git clone --branch 3.14 --single-branch https://github.com/WiringPi/WiringPi.git
-COPY WiringPi/patches /root/WiringPi/
+COPY WiringPi/patches /root/WiringPi/wiringPi
 RUN \
-  patch -u -b WiringPi/wiringPi/wiringPi.c -i WiringPi/patches/wiringPi.c.patch && \
-  patch -u -b WiringPi/wiringPi/Makefile -i WiringPi/patches/wiringPi_Makefile.patch && \
+  cd WiringPi/wiringPi && \
+  patch -u -b wiringPi.c -i wiringPi.c.patch && \
+  patch -u -b Makefile -i wiringPi_Makefile.patch && \
   cd WiringPi/wiringPi && \
   make install && \
   cp libwiringPi.so.3.14 /usr/local/lib && \
