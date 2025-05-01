@@ -34,6 +34,9 @@ RUN \
 COPY WiringPi/patches /root/WiringPi/wiringPi
 RUN \
   cd WiringPi/wiringPi && \
+  echo
+  echo " FART "
+  echo
   patch -u -b wiringPi.c -i wiringPi.c.patch && \
   patch -u -b Makefile -i Makefile.patch && \
   make install && \
