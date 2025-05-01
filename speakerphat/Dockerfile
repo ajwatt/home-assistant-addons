@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 # Install requirements for add-on
 RUN \
-  apk update
+  apk update \
   apk add --no-cache --virtual "ALSA" \
     alsa-utils \
     pulseaudio-utils \
@@ -13,7 +13,7 @@ RUN \
 COPY root/ /root/
 COPY run.sh /
 RUN \
-  chmod +x /root/soundtest.sh
+  chmod +x /root/soundtest.sh \
   chmod a+x /run.sh
 
 # Install Pivumeter dependencies
