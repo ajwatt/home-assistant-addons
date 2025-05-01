@@ -1,0 +1,4 @@
+1651c1651
+<   node = (struct wiringPiNodeStruct *)calloc (1, sizeof (struct wiringPiNodeStruct)) ;	// calloc zeros
+---
+>   node = (struct wiringPiNodeStruct *)calloc (sizeof (struct wiringPiNodeStruct), 1) ;	// calloc zeros
