@@ -46,7 +46,7 @@ RUN \
   ldconfig /etc/ld.so.conf.d; echo $? && \
   cd /
 
-
+CMD [ "echo fart" ]
 
 #COPY libpivumeter.a /usr/local/lib
 #COPY libpivumeter.la /usr/local/lib
