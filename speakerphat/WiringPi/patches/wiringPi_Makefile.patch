@@ -8,12 +8,11 @@
  
  .PHONY: check-deb-destdir
  check-deb-destdir:
-@@ -126,8 +125,6 @@
+@@ -126,7 +125,6 @@
         $Q echo "[UnInstall]"
         $Q cd $(DESTDIR)$(PREFIX)/include/ && rm -f $(HEADERS)
         $Q cd $(DESTDIR)$(PREFIX)/lib/     && rm -f libwiringPi.*
 -       $Q $(LDCONFIG)
--
+ 
  
  .PHONY:        depend
- depend:
