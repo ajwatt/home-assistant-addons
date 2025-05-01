@@ -12,9 +12,9 @@ RUN \
 # Copy data for add-on
 COPY root/ /root/
 COPY run.sh /
-RUN \
-  chmod +x /root/soundtest.sh \
-  chmod a+x /run.sh
+#RUN \
+#  chmod +x /root/soundtest.sh \
+#  chmod a+x /run.sh
 
 # Install Pivumeter dependencies
 RUN \
