@@ -9,6 +9,13 @@ RUN \
     pulseaudio-utils \
     alsa-plugins-pulse
 
+# Copy data for add-on
+COPY root/ /root/
+COPY run.sh /
+RUN \
+  chmod +x /root/soundtest.sh
+  chmod a+x /run.sh
+
 # Install Pivumeter dependencies
 RUN \
   apk add --no-cache --virtual "Pivumeter dependencies" \
@@ -23,16 +30,22 @@ RUN \
 
 # Build patched WiringPi
 RUN \
-
-
-# Copy data for add-on
-COPY .asoundrc /root/
-COPY run.sh /
-RUN chmod a+x /run.sh
-COPY LGsong-chorus.wav /
-COPY soundtest.sh /
+  cd \
+  git clone --branch 3.14 --single-branch https://github.com/WiringPi/WiringPi.git
+COPY WiringPi/patches /root/WiringPi/
 RUN \
-  chmod +x soundtest.sh
+  patch -u -b WiringPi/wiringPi/wiringPi.c -i WiringPi/patches/wiringPi.c.patch \
+  patch -u -b WiringPi/wiringPi/Makefile -i WiringPi/patches/wiringPi_Makefile.patch \
+  cd WiringPi/wiringPi \
+  make install \
+  cp libwiringPi.so.3.14 /usr/local/lib \
+  cd /usr/local/lib \
+  ln -s libwiringPi.so.3.14 libwiringPi.so \
+  ldconfig /etc/ld.so.conf.d; echo $? \
+  cd /
+
+
+
 #COPY libpivumeter.a /usr/local/lib
 #COPY libpivumeter.la /usr/local/lib
 #COPY libpivumeter.so.0.0.0 /usr/local/lib
