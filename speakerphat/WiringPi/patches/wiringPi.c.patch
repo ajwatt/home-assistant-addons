@@ -1,5 +1,5 @@
---- WiringPi/wiringPi/wiringPi.c
-+++ WiringPi.patched/wiringPi/wiringPi.c
+--- wiringPi.c.orig
++++ wiringPi.c
 @@ -1648,7 +1648,7 @@
      if (wiringPiFindNode (pin) != NULL)
        (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Pin %d overlaps with existing definition\n", pin) ;
