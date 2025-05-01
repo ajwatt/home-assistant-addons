@@ -1,4 +1,11 @@
-1651c1651
-<   node = (struct wiringPiNodeStruct *)calloc (1, sizeof (struct wiringPiNodeStruct)) ;	// calloc zeros
----
->   node = (struct wiringPiNodeStruct *)calloc (sizeof (struct wiringPiNodeStruct), 1) ;	// calloc zeros
+--- wiringPi.c	2025-05-01 14:56:53.341903677 -0500
++++ wiringPi.c.orig	2025-05-01 14:56:02.064436729 -0500
+@@ -1648,7 +1648,7 @@
+     if (wiringPiFindNode (pin) != NULL)
+       (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Pin %d overlaps with existing definition\n", pin) ;
+ 
+-  node = (struct wiringPiNodeStruct *)calloc (1, sizeof (struct wiringPiNodeStruct)) ;	// calloc zeros
++  node = (struct wiringPiNodeStruct *)calloc (sizeof (struct wiringPiNodeStruct), 1) ;	// calloc zeros
+   if (node == NULL)
+     (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Unable to allocate memory: %s\n", strerror (errno)) ;
+ 
