@@ -33,7 +33,7 @@ RUN \
   git clone --branch 3.14 --single-branch https://github.com/WiringPi/WiringPi.git
 COPY WiringPi/patches /root/WiringPi/wiringPi
 RUN \
-  cd WiringPi/wiringPi && \
+  cd /root/WiringPi/wiringPi && \
   patch -u -b wiringPi.c -i wiringPi.c.patch && \
   patch -u -b Makefile -i Makefile.patch && \
   make install && \
