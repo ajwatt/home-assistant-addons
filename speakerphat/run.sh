@@ -2,7 +2,7 @@
 
 STARTSOUND="$(bashio::config 'startup_sound')"
 
-aplay /$STARTSOUND
+#aplay /$STARTSOUND
 
 while :
 do
