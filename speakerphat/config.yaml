@@ -1,6 +1,6 @@
 name: "Pimoroni Speaker pHAT"
 description: "Use the Speaker pHAT to play sound from the Home Assistant host machine"
-version: "1.0.64"
+version: "1.0.65"
 slug: "speakerphat"
 url: https://github.com/ajwatt/home-assistant-addons/tree/main/speakerphat
 init: false
@@ -14,6 +14,10 @@ devices:
   - /dev/i2c-1
   - /dev/i2c-10
   - /dev/i2c-22
+  - /dev/snd/controlC0
+  - /dev/snd/controlC1
+  - /dev/snd/pcmC0D0p
+  - /dev/snd/pcmC1D0p
 options:
   startup_sound: /root/LGsong-chorus.wav
 schema:
