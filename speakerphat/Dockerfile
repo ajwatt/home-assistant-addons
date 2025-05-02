@@ -34,9 +34,6 @@ RUN \
 COPY WiringPi/patches /root/WiringPi/wiringPi
 RUN \
   cd WiringPi/wiringPi && \
-  echo && \
-  echo " FART " && \
-  echo && \
   patch -u -b wiringPi.c -i wiringPi.c.patch && \
   patch -u -b Makefile -i Makefile.patch && \
   make install && \
@@ -45,8 +42,6 @@ RUN \
   ln -s libwiringPi.so.3.14 libwiringPi.so && \
   ldconfig /etc/ld.so.conf.d; echo $? && \
   cd /
-
-CMD [ "echo fart" ]
 
 #COPY libpivumeter.a /usr/local/lib
 #COPY libpivumeter.la /usr/local/lib
