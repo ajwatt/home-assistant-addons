@@ -22,7 +22,7 @@ pcm.softvol_and_pivumeter {
         slave.pcm "pivumeter"
         control {
                 name "PCM"
-                card 0
+                card "speakerphat"
         }
 }
 
