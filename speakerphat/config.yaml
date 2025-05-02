@@ -15,6 +15,6 @@ devices:
   - /dev/i2c-10
   - /dev/i2c-22
 options:
-  startup_sound: LGsong-chorus.wav
+  startup_sound: /root/LGsong-chorus.wav
 schema:
   startup_sound: str
