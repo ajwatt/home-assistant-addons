@@ -2,7 +2,6 @@
 
 STARTSOUND="$(bashio::config 'startup_sound')"
 
-apk add --no-cache alsa-utils
 aplay /$STARTSOUND
 
 while :
