@@ -1,6 +1,6 @@
 name: "Pimoroni Speaker pHAT"
 description: "Use the Speaker pHAT to play sound from the Home Assistant host machine"
-version: "1.0.59"
+version: "1.0.60"
 slug: "speakerphat"
 url: https://github.com/ajwatt/home-assistant-addons/tree/main/speakerphat
 init: false
