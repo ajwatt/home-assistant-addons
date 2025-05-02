@@ -7,8 +7,6 @@ init: false
 arch:
   - armhf
 audio: true
-privileged:
-  - SYS_ADMIN
 devices:
   - /dev/i2c-0
   - /dev/i2c-1
