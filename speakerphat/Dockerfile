@@ -43,6 +43,16 @@ RUN \
   ldconfig /etc/ld.so.conf.d; echo $? && \
   cd /
 
+# Build Pivumeter library
+RUN \
+  cd /root && \
+  git clone https://github.com/pimoroni/pivumeter && \
+  cd pivumeter && \
+  aclocal && libtoolize && \
+  autoupdate && autoconf && automake --add-missing && \
+  ./configure && make && \
+  make install 
+
 #COPY libpivumeter.a /usr/local/lib
 #COPY libpivumeter.la /usr/local/lib
 #COPY libpivumeter.so.0.0.0 /usr/local/lib
@@ -50,4 +60,4 @@ RUN \
 #  ln -s /usr/local/lib/libpivumeter.so.0.0 /usr/local/lib/libpivumeter.so \
 #  ln -s /usr/local/lib/libpivumeter.so.0.0 /usr/local/lib/libpivumeter.so.0
 
-#CMD [ "/run.sh" ]
+CMD [ "/run.sh" ]
